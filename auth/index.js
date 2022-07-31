@@ -4,17 +4,16 @@ const error = require('../utils/error');
 const secret = config.jwt.secret;
 
 function sign(data) {
-    return jwt.sign(data, secret);
+    return jwt.sign(JSON.stringify(data), secret)
 }
 
 function verify(data) {
-    return jwt.verify(data, secret);
+    return jwt.verify(JSON.stringify(data), secret);
 }
 
 const check = {
     own: function(req, owner) {
         const decoded = decodeHeader(req);
-        console.log(decoded, 'TOKEN', owner);
         if (decoded.id !== owner) {
             throw error('No tienes permiso para realizar esta acción', 401);
         }
@@ -41,4 +40,4 @@ function decodeHeader(req) {
 module.exports = {
     sign,
     check,
-}
+};
