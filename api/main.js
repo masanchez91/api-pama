@@ -18,5 +18,12 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDoc));
 app.use(errors);
 
 app.listen(config.api.port, () => {
-    console.info('Api escuchando en el puerto', config.api.port);
+    console.info(`
+    ################################################
+    🛡️  Server listening on port: ${config.api.port} 🛡️
+    ################################################
+  `);
+}).on('error', err => {
+    console.error(err);
+    process.exit(1);
 });

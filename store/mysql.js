@@ -71,7 +71,7 @@ function update(table, data, id) {
 
 async function upsert(table, data) {
     const result = await get(table,data.id);
-    if(result.length <1 ) {
+    if(result.length < 1) {
         return insert(table, data);
     } else {
         return update(table, data);
