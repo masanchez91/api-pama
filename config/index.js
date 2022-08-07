@@ -1,9 +1,11 @@
-module.exports = {
+require('dotenv').config();
+
+const config = {
     api: {
         port: process.env.PORT || 3000,
     },
     jwt: {
-        secret: process.env.JWT_SECRET ||'',
+        authJwtSecret: process.env.AUTH_JWT_SECRET ||'',
     },
     mysql: {
         host: process.env.MYSQL_HOST || '',
@@ -12,4 +14,6 @@ module.exports = {
         database: process.env.MYSQL_DB || '',
     },
     ctx:  process.env.NODE_ENV || '',
-}
+};
+
+module.exports = { config: config };

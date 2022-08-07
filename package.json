@@ -4,7 +4,8 @@
   "description": "Sistema de control de pagos por mantenimiento de condominios, departamentos o locales.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon api/main.js",
+    "start": "nodemon api/main.js"
   },
   "repository": {
     "type": "git",

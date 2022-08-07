@@ -1,8 +1,7 @@
-require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const swaggerUI = require('swagger-ui-express');
-const config = require('../config');
+const { config } = require('../config');
 const user = require('./components/user/network');
 const auth = require('./components/auth/network');
 const errors = require('../network/errors');
